@@ -1,3 +1,4 @@
+print "start"
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
@@ -34,8 +35,11 @@ cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))
 
 # Training 
 print "start training"
+# optimization function ( optimizer )
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
+# 1000 epoch
+# epoch = feed forword + backprop
 for i in range(1000):
 	if(i%75==0):
 		print "{}% complete.".format((i/1000.0)*100)
